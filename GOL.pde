@@ -1,5 +1,5 @@
 GameOfLife gol;
-int resolution = 13; //13;
+int resolution = 13; //use 13 for the logic gates;
 PImage image;
 
 void setup() {
@@ -22,7 +22,7 @@ void mousePressed() {
   int y = mouseY/resolution;
   if (mouseButton == LEFT) {
     gol.change_state(x, y);
-  } else if (mouseButton == RIGHT) {
+  } else if (mouseButton == RIGHT) { //right click to make a glider gun
     gol.glider_gun(x, y);
   }
 }
@@ -32,23 +32,23 @@ void keyPressed() {
     gol.pauseorresume();
   }
 
-  if (key == 'r') {
+  if (key == 'r') { //reset grid to all zeros
     gol.init_grid();
   }
 
-  if (key == 'a') {
+  if (key == 'a') { //randomise the grid
     gol.randomise();
   }
   
-  if (key == 'f'){
+  if (key == 'f'){ //flip the glider gun
     gol.glider_flip = !gol.glider_flip;
   }
   
-  if (key == 'g'){
+  if (key == 'g'){ //toggle between add or remove
     gol.glider_remover = !gol.glider_remover;
   }
   
-  if (key == 'l'){
+  if (key == 'l'){ //show or unshow the grid lines
     gol.grid_lines = !gol.grid_lines;
   }
 }
